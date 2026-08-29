@@ -34,3 +34,7 @@ build/
 
 ### macOS ignore ###
 .DS_Store
+
+
+### ignore claude skill files
+.claude

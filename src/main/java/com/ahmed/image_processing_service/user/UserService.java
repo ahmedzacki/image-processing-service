@@ -20,7 +20,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void register(RegisterRequest request) {
+    public User register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new UserAlreadyExistsException("Email already exists");
@@ -34,6 +34,6 @@ public class UserService {
                 passwordEncoder.encode(request.getPassword())
         );
 
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 }
